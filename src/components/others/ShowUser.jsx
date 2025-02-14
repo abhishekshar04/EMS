@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../context/AuthProvider';
 
-function ShowUser({ email }) {
+function ShowUser({ email ,goBack}) {
     const userData = useContext(AuthContext);
     const { employees } = userData;
 
@@ -9,6 +9,15 @@ function ShowUser({ email }) {
     console.log(user);
 
     return (
+        <>
+        <div>
+            <button 
+                onClick={goBack} 
+                className="px-2 py-1 bg-black text-sm rounded-sm cursor-pointer hover:bg-gray-800"
+            >
+                Go Back
+            </button>
+        </div>
         <div className="flex justify-center items-center flex-col w-full">
             <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-lg">
                 <div className="flex justify-between bg-emerald-500 text-white text-xl font-bold px-4 py-2 rounded-md">
@@ -38,6 +47,7 @@ function ShowUser({ email }) {
                 </div>
             </div>
         </div>
+        </>
     );
 }
 
